@@ -1,0 +1,6 @@
+{
+  "name": "Campus Study Hub",
+  "description": "Digital academic learning platform for UGI college students with teacher notes, topic-wise lectures, sessional papers, and AKTU PYQs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

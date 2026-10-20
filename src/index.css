@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vanilla: #F5E6B3;
+  --color-vanilla-light: #FAF4E5;
+  --color-vanilla-dark: #E4D197;
+  --color-bloodstone: #8A2635;
+  --color-bloodstone-hover: #721E2B;
+  --color-bloodstone-light: #A53648;
+  --color-bloodstone-subtle: #F8EDEF;
+  --color-warm-white: #FFFCF5;
+  --color-charcoal: #292626;
+  --color-charcoal-muted: #575252;
+  --color-muted-rose: #C98287;
+  --color-soft-beige: #E8D9B8;
+  --color-soft-beige-light: #F4EEDF;
+
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: #FFFCF5;
+  color: #292626;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Custom scrollbars matching academic palette */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF4E5;
+}
+::-webkit-scrollbar-thumb {
+  background: #E4D197;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C98287;
+}

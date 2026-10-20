@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B1E1E"/>
+      <stop offset="50%" stop-color="#671414"/>
+      <stop offset="100%" stop-color="#420B0B"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE588"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA820A"/>
+    </linearGradient>
+    <linearGradient id="pageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5EFE0"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background Squircle / Shield (Maskable safe zone compatible) -->
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bgGrad)"/>
+  <rect x="24" y="24" width="464" height="464" rx="100" fill="none" stroke="url(#goldGrad)" stroke-width="4" stroke-opacity="0.6"/>
+
+  <!-- Inner Crest Ring -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="6 6" stroke-opacity="0.4"/>
+
+  <!-- Academic Torch & Star / Graduation Cap Top -->
+  <g filter="url(#shadow)">
+    <!-- Mortarboard / Academic Cap -->
+    <path d="M 256 120 L 370 172 L 256 224 L 142 172 Z" fill="url(#goldGrad)"/>
+    <path d="M 256 128 L 350 172 L 256 214 L 162 172 Z" fill="#671414" opacity="0.3"/>
+    <!-- Cap Skull Base -->
+    <path d="M 180 190 Q 256 250 332 190 L 332 216 Q 256 270 180 216 Z" fill="url(#goldGrad)"/>
+    <!-- Tassel -->
+    <circle cx="256" cy="172" r="6" fill="#FFF"/>
+    <path d="M 256 172 C 340 185 365 210 375 250" fill="none" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="375" cy="254" r="5" fill="url(#goldGrad)"/>
+
+    <!-- Open Book -->
+    <!-- Left Page -->
+    <path d="M 256 385 C 220 365 170 365 130 372 C 126 373 122 369 122 365 L 122 258 C 122 254 126 251 130 250 C 170 242 220 242 256 262 Z" fill="url(#pageGrad)"/>
+    <!-- Right Page -->
+    <path d="M 256 385 C 292 365 342 365 382 372 C 386 373 390 369 390 365 L 390 258 C 390 254 386 251 382 250 C 342 242 292 242 256 262 Z" fill="url(#pageGrad)"/>
+    <!-- Book Spine & Details -->
+    <path d="M 256 262 L 256 392" stroke="#AA820A" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 150 280 Q 195 275 236 290" fill="none" stroke="#7A1C1C" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 150 305 Q 195 300 236 315" fill="none" stroke="#7A1C1C" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 150 330 Q 195 325 236 340" fill="none" stroke="#7A1C1C" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+
+    <path d="M 362 280 Q 317 275 276 290" fill="none" stroke="#7A1C1C" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 362 305 Q 317 300 276 315" fill="none" stroke="#7A1C1C" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 362 330 Q 317 325 276 340" fill="none" stroke="#7A1C1C" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- Central Star of Knowledge -->
+  <polygon points="256,220 261,232 274,233 264,242 267,255 256,248 245,255 248,242 238,233 251,232" fill="url(#goldGrad)"/>
+
+  <!-- University Monogram Ribbon -->
+  <text x="256" y="440" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="28" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="4">CAMPUS HUB</text>
+  <text x="256" y="465" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="14" fill="#FCE588" text-anchor="middle" letter-spacing="2" opacity="0.8">UGI DIGITAL PORTAL</text>
+</svg>

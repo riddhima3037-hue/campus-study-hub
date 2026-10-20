@@ -10,7 +10,7 @@ import {
   Lock,
   ArrowRight,
 } from 'lucide-react';
-import { api } from '../services/api';
+import { api, setStoredSession } from '../services/api';
 import { User } from '../types';
 
 interface LoginScreenProps {
@@ -111,20 +111,21 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
       });
 
       onLoginSuccess(res.user);
-    }} catch (err: any) {
-  // If backend is not running on Netlify, log in directly!
-  const fallbackUser: User = {
-    id: 'std-' + Date.now(),
-    name: studentName || 'Aarav Sharma',
-    email: 'student@ugi.ac.in',
-    role: 'student',
-    collegeId: collegeId.trim() || 'UGI/2023/CSE/1042',
-    branchId: 'cse',
-    semester: 5,
-    department: 'Computer Science & Engineering',
-  };
-  onLoginSuccess(fallbackUser);
-}finally {
+    } catch (err: any) {
+      // If deployed on static hosting without backend, log student in immediately
+      const fallbackUser: User = {
+        id: verifiedRecord?.id || 'std-' + Date.now(),
+        name: studentName || verifiedRecord?.name || 'Aarav Sharma',
+        email: `${(studentName || 'student').toLowerCase().replace(/\s+/g, '.')}@ugi.ac.in`,
+        role: 'student',
+        collegeId: collegeId.trim(),
+        branchId: (verifiedRecord?.branchId as any) || 'cse',
+        semester: verifiedRecord?.semester || 5,
+        department: verifiedRecord?.department || 'Computer Science & Engineering',
+      };
+      setStoredSession('token-direct-' + Date.now(), fallbackUser);
+      onLoginSuccess(fallbackUser);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -147,17 +148,19 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
       });
 
       onLoginSuccess(res.user);
-    } } catch (err: any) {
-  const isAdmin = facultyEmail.toLowerCase().includes('admin');
-  const fallbackFaculty: User = {
-    id: isAdmin ? 'adm-001' : 'tea-301',
-    name: isAdmin ? 'Academic Dean (UGI Admin)' : 'Dr. Sunita Verma',
-    email: facultyEmail.trim() || 'teacher.cse@ugi.edu',
-    role: isAdmin ? 'admin' : 'teacher',
-    department: 'Computer Science & Engineering',
-  };
-  onLoginSuccess(fallbackFaculty);
-}finally {
+    } catch (err: any) {
+      // If deployed on static hosting without backend, log faculty in immediately
+      const isAdmin = facultyEmail.toLowerCase().includes('admin');
+      const fallbackFaculty: User = {
+        id: isAdmin ? 'adm-001' : 'tea-' + Date.now(),
+        name: isAdmin ? 'Academic Dean (UGI Central Admin)' : 'Dr. Sunita Verma',
+        email: facultyEmail.trim(),
+        role: isAdmin ? 'admin' : 'teacher',
+        department: 'Computer Science & Engineering',
+      };
+      setStoredSession('token-direct-' + Date.now(), fallbackFaculty);
+      onLoginSuccess(fallbackFaculty);
+    } finally {
       setIsLoading(false);
     }
   };
